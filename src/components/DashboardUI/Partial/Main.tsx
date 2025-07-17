@@ -10,8 +10,8 @@ const Main = ({ fixed, className, ...props }: MainProps) => {
   return (
     <main
       className={cn(
-        "peer-[.header-fixed]/header:mt-16",
-        "px-4 py-6",
+        "peer-[.header-fixed]/header:mt-2",
+        "px-2 md:px-0 py-1",
         fixed && "fixed-main flex grow flex-col overflow-hidden",
         className
       )}

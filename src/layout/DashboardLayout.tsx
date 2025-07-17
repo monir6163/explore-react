@@ -23,10 +23,6 @@ const DashboardLayout = () => {
     document.addEventListener("scroll", onScroll, { passive: true });
     return () => document.removeEventListener("scroll", onScroll);
   }, []);
-  let fixed = false;
-  if (offset > 10) {
-    fixed = true;
-  }
   return (
     <>
       <ProgressBar />
@@ -35,9 +31,10 @@ const DashboardLayout = () => {
         <SidebarInset>
           <header
             className={cn(
-              "bg-background flex h-16 items-center gap-3 p-4 sm:gap-4 transition-shadow duration-300",
-              fixed && "header-fixed peer/header fixed z-50 w-full rounded-md",
-              offset > 10 && fixed ? "shadow-sm" : "shadow-none"
+              "bg-background flex h-16 items-center gap-3 p-4 sm:gap-4 transition-shadow duration-300 shadow-sm header-fixed peer/header z-50 w-full rounded-md border border-border",
+              offset > 10
+                ? "shadow-sm header-fixed peer/header fixed z-50 w-full rounded-md border border-border bg-background"
+                : ""
             )}
           >
             <SidebarTrigger

@@ -50,18 +50,26 @@ export function TopNav({ className, links, ...props }: TopNavProps) {
         )}
         {...props}
       >
-        {links.map(({ title, href, isActive }) => (
-          <Link
-            key={`${title}-${href}`}
-            to={href}
-            // disabled={disabled}
-            className={`hover:text-primary text-sm font-medium transition-colors ${
-              isActive ? "" : "text-muted-foreground"
-            }`}
-          >
-            {title}
-          </Link>
-        ))}
+        {links.map(({ title, href, isActive, disabled }) =>
+          disabled ? (
+            <span
+              key={`${title}-${href}`}
+              className="text-sm font-medium text-muted-foreground cursor-not-allowed opacity-70"
+            >
+              {title}
+            </span>
+          ) : (
+            <Link
+              key={`${title}-${href}`}
+              to={href}
+              className={`hover:text-primary text-sm font-medium transition-colors ${
+                isActive ? "" : "text-muted-foreground"
+              }`}
+            >
+              {title}
+            </Link>
+          )
+        )}
       </nav>
     </>
   );

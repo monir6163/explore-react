@@ -77,6 +77,8 @@
 @layer base {
   * {
     @apply border-border;
+    scrollbar-width: thin;
+    scrollbar-color: #e2e8f0 transparent;
   }
   body {
     @apply bg-background text-foreground;
